@@ -19,3 +19,6 @@ if (module.parent === null) {
   console.log(assertArraysEqual(["1", "2", "3"], ["1", "2", "3"])); // => true
   console.log(assertArraysEqual(["1", "2", "3"], ["1", "2", 3])); // => false
 }
+
+// EXPORT FUNCTIONALITY
+module.exports = assertArraysEqual;
