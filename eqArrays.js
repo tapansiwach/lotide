@@ -12,13 +12,16 @@ const eqArrays = function (firstArr, secondArr) {
   return true;
 };
 
-
-
 // CODE TESTS
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
-console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
+if (module.parent === null) {
+  console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
+  console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
 
-console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
-console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
+  console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
+  console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+  assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+}
+
+// EXPORT FILE
+module.exports = eqArrays;
