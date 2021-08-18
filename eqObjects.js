@@ -5,9 +5,12 @@ const eqArrays = require("./eqArrays");
 const eqObjects = function(obj1, obj2) {
   let result;
 
-  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
-    return false;
-  };
+  let len1 = Object.keys(obj1).length;
+  let len2 = Object.keys(obj2).length;
+
+  if (len1 === 0 && len2 === 0) return true;
+
+  if (len1 !== len2) return false;;
 
   for (let key in obj1) {
     if (key in obj2) {
@@ -29,6 +32,7 @@ const eqObjects = function(obj1, obj2) {
 
 // CODE TESTS
 if (module.parent === null) {
+  assertEqual(eqObjects({}, {}), true);
   // test primitive values
   const ab = { a: "1", b: "2" };
   const ba = { b: "2", a: "1" };
