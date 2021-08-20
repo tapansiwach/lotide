@@ -14,7 +14,11 @@ const eqObjects = function(obj1, obj2) {
 
   for (let key in obj1) {
     if (key in obj2) {
-      if (Array.isArray(obj2[key])) {
+      // check recursively for nested objects
+      if (obj1[key] === Object(obj1[key])) {
+        result = eqObjects(obj1[key], obj2[key]);
+      }
+      else if (Array.isArray(obj2[key])) {
         // check if array values are equal
         result = eqArrays(obj2[key], obj1[key]);
       } else {
@@ -48,6 +52,11 @@ if (module.parent === null) {
 
   const cd2 = { c: "1", d: ["2", 3, 4] };
   assertEqual(eqObjects(cd, cd2), false);
+
+  // test nested objects
+  assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+  assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
+  assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
 }
 
 // EXPORT FUNCTIONALITY
