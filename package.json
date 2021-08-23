@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
+  "name": "@tapansiwach/lotide",
   "version": "1.0.0",
-  "description": "",
-  "main": "assertArraysEqual.js",
+  "description": "contains functions for checking equality, processing, filtering and searching of objects and arrays",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/tapansiwach/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "tapansiwach",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tapansiwach/lotide/issues"
